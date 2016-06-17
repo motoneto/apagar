@@ -1,5 +1,6 @@
 package br.univel;
-
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement
 public class Cliente {
 
 	private int id;

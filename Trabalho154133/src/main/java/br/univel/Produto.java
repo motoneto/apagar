@@ -2,6 +2,8 @@ package br.univel;
 
 import java.math.BigDecimal;
 
+import javax.xml.bind.annotation.XmlRootElement;
+@XmlRootElement
 public class Produto {
 
 	private int id;

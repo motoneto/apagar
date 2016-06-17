@@ -7,22 +7,33 @@ public class Principal {
 public static void main(String[] args) {
 	LerArquivoTexto arq = new LerArquivoTexto();
 	
-	List<String> listaP = arq.lerProdutos();
-	List<String> listaC = arq.lerClientes();
+	List<String> listaP = arq.lerArquivo("Produtos.txt");
+//	List<String> listaC = arq.lerArquivo("Cliente.txt");
 	
 	Parser parser = new Parser();
 	
 	List<Produto> listaPrd = parser.getProduto(listaP);
-	List<Cliente> listaCli = parser.getCliente(listaC);
+//	List<Cliente> listaCli = parser.getCliente(listaC);
 	
-	ExportarXML out = new ExportarXML();
-	ImportarXML in = new ImportarXML();
+//	ClienteContainer cc = new ClienteContainer();
+	ProdutosContainer pc = new ProdutosContainer();
 
-	out.exportarProduto(listaPrd);
-	out.exportarCliente(listaCli);
+	pc.setProduto(listaPrd);
+//	cc.setLista(listaCli);
+	XML xml = new XML();
+//	xml.exportar(pc,"ListaProduto.xml");
+//	xml.exportar(cc,"listaClientes.xml");
 	
-	in.importarCliente();
-	in.importarProduto();
+//	xml.importarCliente("ListaClientes.xml");
+//	xml.importarProduto("ListaProduto.xml");
+	
+//	Serializar serial = new Serializar();
+	
+//	serial.SerializarClientes(listaCli, "Cliente.dat");
+//	serial.SerializarProdutos(pc.getProduto(), "Produto.dat");
+	
+//	serial.ImportSerialProdutos("Produto.dat");
+//	serial.ImportSerialClientes("Cliente.dat");
 
 }
 }
