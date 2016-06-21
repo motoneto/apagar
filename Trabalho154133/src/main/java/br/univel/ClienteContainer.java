@@ -8,6 +8,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class ClienteContainer {
 	private List<Cliente> cliente;
 
+	public boolean testeClienteConteiner() {
+		if (cliente.isEmpty()) {
+			return true;
+		}
+		return false;
+	}
+
 	public List<Cliente> getCliente() {
 		return cliente;
 	}
@@ -16,5 +23,4 @@ public class ClienteContainer {
 		this.cliente = cliente;
 	}
 
-	}
-
+}

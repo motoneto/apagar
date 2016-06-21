@@ -21,16 +21,16 @@ public static void main(String[] args) {
 	pc.setProduto(listaPrd);
 //	cc.setLista(listaCli);
 	XML xml = new XML();
-//	xml.exportar(pc,"ListaProduto.xml");
+	xml.exportar(pc,"ListaProduto.xml");
 //	xml.exportar(cc,"listaClientes.xml");
 	
 //	xml.importarCliente("ListaClientes.xml");
 //	xml.importarProduto("ListaProduto.xml");
 	
-//	Serializar serial = new Serializar();
+	Serializar serial = new Serializar();
 	
 //	serial.SerializarClientes(listaCli, "Cliente.dat");
-//	serial.SerializarProdutos(pc.getProduto(), "Produto.dat");
+	serial.SerializarProdutos(pc.getProduto(), "Produto.dat");
 	
 //	serial.ImportSerialProdutos("Produto.dat");
 //	serial.ImportSerialClientes("Cliente.dat");

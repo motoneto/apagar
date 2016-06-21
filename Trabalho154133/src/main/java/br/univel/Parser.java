@@ -54,11 +54,6 @@ public class Parser {
 
 	private Produto getProduto(String str) {
 
-		// Se fosse CSV....
-		// String[] itens = str.split(",");
-		// int id = Integer.parseInt(itens[0]);
-		// String descricao = itens[1];
-
 		int indexPrimeiroEspaco = str.indexOf(' ');
 		String subStringCodigo = str.substring(0, indexPrimeiroEspaco);
 		int id = Integer.parseInt(subStringCodigo);
@@ -73,10 +68,6 @@ public class Parser {
 		String strPreco = null;
 
 		try {
-			// strPreco = strSemCodigo.substring(indexDolar +
-			// 3).trim().replaceAll("\\.", "").replace(',', '.');
-			// preco = new BigDecimal(strPreco);
-
 			strPreco = strSemCodigo.substring(indexDolar + 3).trim();
 			preco = new BigDecimal(format.parse(strPreco).doubleValue());
 			preco.setScale(2, RoundingMode.HALF_EVEN);
@@ -92,40 +83,8 @@ public class Parser {
 		return p;
 	}
 	private Cliente getCliente(String str) {
-
-		// Se fosse CSV....
-		// String[] itens = str.split(",");
-		// int id = Integer.parseInt(itens[0]);
-		// String descricao = itens[1];
-
-//		int indexPrimeiroEspaco = str.indexOf(' ');
-//		String subStringCodigo = str.substring(0, indexPrimeiroEspaco);
-//		int id = Integer.parseInt(subStringCodigo);
-//
-//		String strSemCodigo = str.substring(indexPrimeiroEspaco).trim();
-//
-//		int indexDolar = strSemCodigo.indexOf("US$");
-//
-//		String descricao = strSemCodigo.substring(0, indexDolar).trim();
-//
-//		BigDecimal preco = null;
-//		String strPreco = null;
-//
-//		try {
-//			// strPreco = strSemCodigo.substring(indexDolar +
-//			// 3).trim().replaceAll("\\.", "").replace(',', '.');
-//			// preco = new BigDecimal(strPreco);
-//
-//			strPreco = strSemCodigo.substring(indexDolar + 3).trim();
-//			preco = new BigDecimal(format.parse(strPreco).doubleValue());
-//			preco.setScale(2, RoundingMode.HALF_EVEN);
-//
-//		} catch (NumberFormatException | ParseException e) {
-//
-//			System.out.println(strPreco);
-//
-//			e.printStackTrace();
-//		}
+		
+		
 
 		Cliente c = new Cliente();
 		return c;
