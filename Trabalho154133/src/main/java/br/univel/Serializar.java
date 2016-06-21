@@ -15,14 +15,14 @@ public class Serializar {
 		lista.forEach(e ->{
 			try(FileOutputStream fos = new FileOutputStream(file);
 					ObjectOutputStream oos = new ObjectOutputStream(fos)){
-				System.out.println(e);
-				System.out.println("foi");
 				oos.writeObject(e);			
 			}catch(Exception E){
 				E.printStackTrace();
 			}
 		});
 	}
+	
+	
 	public void SerializarClientes(List<Cliente> lista, String arquivo){
 		File file = new File(arquivo);
 		
