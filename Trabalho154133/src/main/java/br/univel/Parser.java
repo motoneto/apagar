@@ -35,18 +35,8 @@ public class Parser {
 	
 	public List<Cliente> getCliente(List<String> listaStr) {
 	List<Cliente> listaCli = new ArrayList<>();
-
-	Pattern p = Pattern.compile("[0-9]+.*");
-
 	listaStr.forEach(e -> {
-
-		if (!e.startsWith("----")) {
-			Matcher m = p.matcher(e);
-			if (m.matches()) {
-				listaCli.add((getCliente(e)));
-			}
-		}
-
+		listaCli.add((getCliente(e)));
 	});
 
 	return listaCli;
@@ -84,9 +74,20 @@ public class Parser {
 	}
 	private Cliente getCliente(String str) {
 		
-		
+		 String[] itens = str.split(",");
+		 int id = Integer.parseInt(itens[0]);
+		 String nome = itens[1];
+		 String endereço= itens[2];
+		 int numero = Integer.parseInt(itens[3]);
+		 String complemento= itens[4];
+		 String Bairro= itens[5];
+		 String Cidade= itens[6];
+		 String Estado= itens[7];
+		 int cep = Integer.parseInt(itens[8]);
+		 String telefone= itens[9];
+		 String celular= itens[10];
 
-		Cliente c = new Cliente();
+		Cliente c = new Cliente(id, nome, endereço, numero, complemento, Bairro, Cidade, Estado,cep,telefone,celular);
 		return c;
 	}
 

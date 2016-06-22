@@ -1,11 +1,17 @@
 package br.univel;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class ProdutosContainer {
+public class ProdutosContainer implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3637301920955805531L;
 	private List<Produto> produto;
 
 	public boolean testeProdutoConteiner() {

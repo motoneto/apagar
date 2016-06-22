@@ -7,6 +7,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -69,10 +72,12 @@ public class XML {
 			}
 
 		}
+		System.out.println(xml);
 		return xml;
 	}
 
-	public void importarProduto(String arquivo) {
+	public List<Produto> importarProduto(String arquivo) {
+		List<Produto> list = new ArrayList<Produto>();
 		if (verificarImportProduto(arquivo)) {
 			try {
 				FileReader fr = new FileReader(arquivo);
@@ -90,7 +95,8 @@ public class XML {
 				Unmarshaller unmarshaller = context.createUnmarshaller();
 				ProdutosContainer Prd = (ProdutosContainer) unmarshaller.unmarshal(in);
 				Prd.getProduto().forEach(e -> {
-					System.out.println(e.getId() + " " + e.getDescricao() + " " + e.getPreco());
+					Produto p = new Produto(e.getId(),e.getDescricao(),e.getPreco());
+					list.add(p);
 				});
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -98,9 +104,11 @@ public class XML {
 				e.printStackTrace();
 			}
 		}
+		return list;
 	}
 
-	public void importarCliente(String arquivo) {
+	public List<Cliente> importarCliente(String arquivo) {
+		List<Cliente> list = new ArrayList<Cliente>();
 		if (verificarImportCliente(arquivo)) {
 			try {
 				FileReader fr = new FileReader(arquivo); // arquivo
@@ -118,9 +126,10 @@ public class XML {
 				Unmarshaller unmarshaller = context.createUnmarshaller();
 				ClienteContainer C = (ClienteContainer) unmarshaller.unmarshal(in);
 				C.getCliente().forEach(e -> {
-					System.out.println(e.getId() + " " + e.getNome() + " " + e.getEndereço() + " " + e.getNumero() + " "
-							+ e.getComplemento() + " " + e.getBairro() + " " + e.getCidade() + " " + e.getEstado() + " "
-							+ e.getCEP() + " " + e.getTelefone() + " " + e.getCelular());
+					System.out.println(e);
+					Cliente c = new Cliente(e.getId(),e.getNome(), e.getEndereço(),e.getNumero(),e.getComplemento(),e.getBairro(),e.getCidade()
+							,e.getEstado(),e.getCEP(),e.getTelefone(),e.getCelular());
+					list.add(c);
 				});
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -128,5 +137,6 @@ public class XML {
 				e.printStackTrace();
 			}
 		}
+		return list;
 	}
 }

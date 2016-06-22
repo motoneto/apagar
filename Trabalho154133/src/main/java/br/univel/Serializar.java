@@ -9,10 +9,11 @@ import java.util.List;
 
 public class Serializar {
 
-	public void SerializarProdutos(List<Produto> lista, String arquivo){
+	public void SerializarProdutos(String arquivo){
 		File file = new File(arquivo);
-	
-		lista.forEach(e ->{
+		ProdutosContainer pc = new ProdutosContainer();
+		
+		pc.getProduto().forEach(e ->{
 			try(FileOutputStream fos = new FileOutputStream(file);
 					ObjectOutputStream oos = new ObjectOutputStream(fos)){
 				oos.writeObject(e);			
@@ -23,10 +24,10 @@ public class Serializar {
 	}
 	
 	
-	public void SerializarClientes(List<Cliente> lista, String arquivo){
+	public void SerializarClientes(String arquivo){
 		File file = new File(arquivo);
-		
-		lista.forEach(e ->{
+		ClienteContainer cc = new ClienteContainer();
+		cc.getCliente().forEach(e ->{
 			try(FileOutputStream fos = new FileOutputStream(file);
 					ObjectOutputStream oos = new ObjectOutputStream(fos)){
 				oos.writeObject(e);			

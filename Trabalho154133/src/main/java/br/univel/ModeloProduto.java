@@ -12,8 +12,8 @@ public class ModeloProduto extends AbstractTableModel {
 	private List<Produto> lista;
 	NumberFormat formatBR = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
 	BigDecimal cotacao = new BigDecimal(3.37);
-	public ModeloProduto(List<Produto> lista) {
-		this.lista = lista;
+	public ModeloProduto(List<Produto> list) {
+		this.lista = list;
 	}
 
 	@Override
