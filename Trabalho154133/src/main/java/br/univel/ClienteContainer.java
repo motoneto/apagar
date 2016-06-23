@@ -14,10 +14,8 @@ public class ClienteContainer implements Serializable{
 	private List<Cliente> cliente;
 
 	public boolean testeClienteConteiner() {
-		if (cliente.isEmpty()) {
-			return true;
-		}
-		return false;
+		return cliente.isEmpty();
+		
 	}
 
 	public List<Cliente> getCliente() {
@@ -27,5 +25,4 @@ public class ClienteContainer implements Serializable{
 	public void setCliente(List<Cliente> cliente) {
 		this.cliente = cliente;
 	}
-
 }

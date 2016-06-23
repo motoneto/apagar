@@ -10,7 +10,10 @@ import org.junit.Test;
 public class LerArquivoTextoTest {
 	
 	@Test
-	public void testLerArquivo() {
+	public void testLerArquivoCliente() {
 		assertTrue(new LerArquivoTexto().verificarArquivo("Clientes.txt"));
+	}
+	public void testLerArquivoProduto() {
+		assertTrue(new LerArquivoTexto().verificarArquivo("Produtos.txt"));
 	}
 }

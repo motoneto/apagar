@@ -42,16 +42,16 @@ public class XML {
 		return false;
 	}
 
-	public String exportar(Object pc, String arquivo) {
+	public Boolean exportar(Object o, String arquivo) {
 		String xml = null;
 		if (verificarArquivoExport(arquivo)) {
 			StringWriter out = new StringWriter();
 			JAXBContext context = null;
 			try {
-				context = JAXBContext.newInstance(pc.getClass());
+				context = JAXBContext.newInstance(o.getClass());
 				Marshaller marshaller = context.createMarshaller();
 				marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-				marshaller.marshal(pc, new StreamResult(out));
+				marshaller.marshal(o, new StreamResult(out));
 			} catch (PropertyException e1) {
 				e1.printStackTrace();
 			} catch (JAXBException e1) {
@@ -73,8 +73,9 @@ public class XML {
 
 		}
 		System.out.println(xml);
-		return xml;
+		return true;
 	}
+	
 
 	public List<Produto> importarProduto(String arquivo) {
 		List<Produto> list = new ArrayList<Produto>();
